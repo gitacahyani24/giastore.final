@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="images/logo.png" alt="GIA STORE Logo" width="180">
+<img src="image/logo.png" alt="GIA STORE Logo" width="180">
 
 # GIA STORE
 
