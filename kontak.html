@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<title>Kontak - GIA STORE</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/kontak.css">
+
+</head>
+<body>
+
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+
+<nav class="navbar">
+
+   <div class="logo">
+      <img src="image/logo.png" alt="GIA STORE">
+   </div>
+
+   <div class="menu-toggle" onclick="toggleMenu()">
+      ☰
+   </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li id="adminMenu" style="display:none;"><a href="admin.html">👨‍💼 Admin Panel</a></li>
+        <li id="adminMenu" style="display:none;"><a href="admin.html">👨‍💼 Admin Panel</a></li>
+    <li class="user-menu">
+
+    <button id="userBtn" class="user-btn">
+        <span id="loginMenu">👤 Login</span>
+    </button>
+
+    <div class="user-dropdown" id="userDropdown">
+
+        <a href="profile.html">👤 Profil Saya</a>
+        <a href="orders.html">📦 Pesanan Saya</a>
+        <a href="wishlist.html">❤️ Wishlist</a>
+
+        <hr>
+
+        <a href="login.html" onclick="logout()">🚪 Logout</a>
+
+    </div>
+
+</li>
+</ul>
+
+<button class="cart-btn" onclick="toggleCart()">
+    🛒 Keranjang (<span id="jumlah">0</span>)
+</button>
+</nav>
+
+<section class="hero-contact">
+
+    <h1>Hubungi GIA STORE</h1>
+
+    <p>
+        Kami siap membantu pertanyaan, kritik, maupun saran Anda.
+    </p>
+
+</section>
+
+<div id="cart" class="cart">
+
+    <h2>🛒 Keranjang Belanja</h2>
+
+    <div id="list"></div>
+
+    <div class="total-box">
+
+        <h3>Total : Rp <span id="total">0</span></h3>
+
+<button class="checkout-btn" onclick="checkout()">
+Bayar Sekarang
+</button>
+
+        <button class="close-cart" onclick="toggleCart()">
+            Tutup
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- KONTAK -->
+<section id="kontak">
+
+    <div class="contact-container">
+
+        <h1>Hubungi Kami</h1>
+
+        <p>
+            Jika ada pertanyaan atau kritik dan saran,
+            silakan hubungi GIA STORE melalui form berikut.
+        </p>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+
+    <h2>Informasi Kontak</h2>
+
+    <div class="info-item">
+        📍 Bandung, Indonesia
+    </div>
+
+    <div class="info-item">
+        📧 giastore@gmail.com
+    </div>
+
+    <div class="info-item">
+        📱 0812-3456-7890
+    </div>
+
+    <div class="info-item">
+        🕒 Senin - Sabtu
+        <br>
+        08.00 - 20.00
+    </div>
+
+</div>
+    <form class="contact-form"id="contactForm">
+            <input type="text" placeholder="Nama Lengkap">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Subjek">
+            <textarea rows="6" placeholder="Pesan"></textarea>
+            <button type="submit">
+                Kirim Pesan
+            </button>
+
+        </form>
+</div>
+    </div>
+</section>
+
+    <script src="js/main.js"></script>
+    <script src="js/produk.js"></script>
+
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-box">
+
+<h3>GIA STORE</h3>
+
+<p>
+Fashion modern untuk generasi muda Indonesia.
+Temukan outfit terbaik dengan kualitas premium dan harga terjangkau.
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Menu</h3>
+
+<a href="index.html">Home</a>
+<a href="produk.html">Produk</a>
+<a href="tentang.html">Tentang</a>
+<a href="kontak.html">Kontak</a>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Kontak</h3>
+
+<p>📍 Bandung, Indonesia</p>
+
+<p>📞 0812-3456-7890</p>
+
+<p>✉️ giastore@gmail.com</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Ikuti Kami</h3>
+
+<p>📷 Instagram : @gia.store</p>
+
+<p>💬 WhatsApp : 0812-3456-7890</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 GIA STORE | All Rights Reserved.
+
+</p>
+
+</footer>
+<script src="js/main.js"></script>
+<script src="js/kontak.js"></script>
+</body>
+</html>

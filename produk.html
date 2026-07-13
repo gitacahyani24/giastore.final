@@ -1,0 +1,962 @@
+<head>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/produk.css">
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- NAVIGASI -->
+<!-- ========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+    <img src="image/logo.png" alt="GIA STORE">
+</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+    ☰
+    </div>
+
+     <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li id="adminMenu" style="display:none;"><a href="admin.html">👨‍💼 Admin Panel</a></li>
+        <li id="adminMenu" style="display:none;"><a href="admin.html">👨‍💼 Admin Panel</a></li>
+     <li class="user-menu">
+
+    <button id="userBtn" class="user-btn">
+        <span id="loginMenu">👤 Login</span>
+    </button>
+
+    <div class="user-dropdown" id="userDropdown">
+
+        <a href="profile.html">👤 Profil Saya</a>
+        <a href="orders.html">📦 Pesanan Saya</a>
+        <a href="wishlist.html">❤️ Wishlist</a>
+
+        <hr>
+
+        <a href="login.html" onclick="logout()">🚪 Logout</a>
+
+    </div>
+
+</li>
+</ul>
+
+
+    <button class="cart-btn" onclick="toggleCart()">
+    🛒 Keranjang (<span id="jumlah">0</span>)
+</button>
+
+</nav>
+
+
+<!-- ========================= -->
+<!-- HOME -->
+<!-- ========================= -->
+
+<div id="cart" class="cart">
+
+    <h2>🛒 Keranjang Belanja</h2>
+
+    <div id="list"></div>
+
+    <div class="total-box">
+
+        <h3>Total : Rp <span id="total">0</span></h3>
+
+<button class="checkout-btn" onclick="checkout()">
+Bayar Sekarang
+</button>
+
+        <button class="close-cart" onclick="toggleCart()">
+            Tutup
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- SECTION PRODUK -->
+<!-- ========================= -->
+
+<section id="produk">
+
+    <div class="section-title">
+
+        <h2>Produk GIA STORE</h2>
+
+        <p>
+            Koleksi fashion modern & klasik untuk anak muda
+        </p>
+
+    </div>
+
+    <div class="filter-box">
+
+    <input
+        type="text"
+        id="search"
+        placeholder="🔍 Cari produk..."
+        onkeyup="filterProduk()">
+
+    <select id="kategori" onchange="filterProduk()">
+        <option value="semua">Semua Kategori</option>
+        <option value="atasan">👚 Atasan</option>
+        <option value="bawahan">👖 Bawahan</option>
+        <option value="sepatu">👟 Sepatu & Sandal</option>
+    </select>
+
+    <select id="harga" onchange="filterProduk()">
+    <option value="semua">💰 Semua Harga</option>
+    <option value="1"> Rp 100.000</option>
+    <option value="2">Rp 100.000 - Rp 130.000</option>
+    <option value="3">> Rp 130.000</option>
+    </select>
+
+    <select id="sort" onchange="urutkanProduk()">
+    <option value="default">↕ Urutkan</option>
+    <option value="murah">💸 Harga Terendah</option>
+    <option value="mahal">💎 Harga Tertinggi</option>
+    <option value="az">🔤 Nama A-Z</option>
+    </select>
+
+</select>
+
+</div>
+
+    <div class="product-container">
+        
+         <!-- PRODUK 1 -->
+         <div class="product-card" data-kategori="atasan" data-harga="115000">
+            <div class="product-image">
+                <img src="image/atasan1.jpg" alt="Atasan Wanita"> </div>
+                <div class="product-info">
+                    <h3>Blouse tali pita lengan pendek</h3>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 560+</span>
+                    </div>
+                    <p>Cocok untuk tampilan kasual yang manis atau chic.</p>
+                    <span class="price">Rp 115.000</span>
+                    <button onclick="tambah('Blouse tali pita',115000,'image/atasan1.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+       <!-- PRODUK 2 -->
+        <div class="product-card"data-kategori="bawahan"data-harga="110000">
+            <div class="product-image">
+                <img src="image/baju5.jpg" alt="Atasan Wanita"> </div>
+                <div class="product-info">
+                <h3>Rok panjang wanita rempel</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.8</span>
+                        <span class="sold">• Terjual 520+</span>
+                    </div>
+                <p>Hijab-friendly abis! Rok kasual yang akan menjadikanmu lebih elegan.</p>
+                <span class="price">Rp 110.000</span>
+                <button onclick="tambah('Rok panjang wanita rempel',110000,'image/baju5.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 3 -->
+        <div class="product-card" data-kategori="atasan">
+            <div class="product-image"> 
+                <img src="image/baju2.jpg" alt="Atasan Wanita"> </div>
+                <div class="product-info">
+                <h3>Hoodie wanita lucu</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.0</span>
+                        <span class="sold">• Terjual 400+</span>
+                    </div>
+                <p>Dibuat dengan bahan premium, cocok untuk stylemu.</p>
+                <span class="price">Rp 120.000</span>
+                <button onclick="tambah('Hoodie wanita lucu',120000,'image/baju2.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+       <!-- PRODUK 4 -->
+        <div class="product-card"data-kategori="atasan" data-harga="110000">
+            <div class="product-image">
+                <img src="image/atasan2.jpg" alt="Atasan Wanita"> </div>
+                <div class="product-info">
+                <h3>Blouse tali pita lengan panjang</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">5.0</span>
+                        <span class="sold">• Terjual 1000+</span>
+                    </div>
+                <p>Hijab-friendly abis! Cocok buat kamu yang ingin tampil elegan dan formal maupun.</p>
+                <span class="price">Rp 110.000</span>
+                <button onclick="tambah('Blouse tali lengan panjang',110000,'image/atasan2.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 3 -->
+         <div class="product-card"data-kategori="atasan">
+            <div class="product-image">
+                <img src="image/baju8.jpg" alt="Atasan Wanita"></div>
+                <div class="product-info">
+                <h3>Sweater Lucu</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 750+</span>
+                    </div>
+                <p> Aduhhh lucu gak sih? yakin gak tertarik?.</p>
+                <span class="price">Rp 100.000</span>
+                <button onclick="tambah('Sweater Lucu',100000,'image/baju8.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="120000">
+            <div class="product-image">
+                <img src="image/alaskaki10.jpg" alt="Oversize T-Shirt"></div>
+                <div class="product-info">
+                <h3>Sepatu Wanita Kekinian</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 660+</span>
+                    </div>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 120.000</span>
+                <button onclick="tambah('Sepatu Wanita Kekinian',120000,'image/alaskaki10.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+         <!-- PRODUK 1 -->
+        <div class="product-card"data-kategori="atasan" data-harga="130000">
+            <div class="product-image">
+                <img src="image/produk1.jpg" alt="Hoodie Sky Blue"></div>
+                <div class="product-info">
+                    <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Hoodie Sky Blue</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">5.0</span>
+                        <span class="sold">• Terjual 1200+</span>
+                    </div>
+                <p>Hoodie modern premium dengan style kekinian.</p>
+                <span class="price">Rp 130.000</span>
+                <button onclick="tambah('Hoodie Sky Blue',130000,'image/produk1.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+        
+<!-- PRODUK 1 -->
+         <div class="product-card"data-kategori="bawahan" data-harga="140000">
+            <div class="product-image">
+                <img src="image/baju4.jpg" alt="Atasan Wanita"></div>
+            <div class="product-info">
+                <h3>Beggy Jeans</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 850+</span>
+                    </div>
+                <p>Untukmu yang skena abiss kami hadirkan beggy jenas yang selalu menjadi pimadona di toko kami.</p>
+                <span class="price">Rp 140.000</span>
+                <button onclick="tambah('Beggy Jean',140000,'image/baju4.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu"data-harga="65000">
+           <div class="product-image">
+            <img src="image/alaskaki9.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Flatshoes</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.5</span>
+                        <span class="sold">• Terjual 450+</span>
+                    </div>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 65.000</span>
+               <button onclick="tambah('Flatshoes',65000,'image/alaskaki9.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+         <!-- PRODUK 3 -->
+         <div class="product-card"data-kategori="atasan" data-harga="110000">
+            <div class="product-image">
+                <img src="image/atasan3.jpg" alt="Atasan Wanita"></div>
+                <div class="product-info">
+                <h3>Blouse dengan kerah besar</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 560+</span>
+                    </div>
+                <p>so Cute! YAkin gak mau beli baju selucu ini?.</p>
+                <span class="price">Rp 110.000</span>
+                <button onclick="tambah('Blouse dengan kerah besar ',110000,'image/atasan3.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="125000">
+           <div class="product-image">
+            <img src="image/alaskaki8.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Fentofel Korean Style</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐</span>
+                        <span class="rating-score">3.9</span>
+                        <span class="sold">• Terjual 360+</span>
+                    </div>
+                <p>Lucu Banget gak sihh?? Ayooo buruan belii.</p>
+                <span class="price">Rp 125.000</span>
+                <button onclick="tambah('Sepatu Fentofel Korean Style',125000,'image/alaskaki8.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 2 -->
+        <div class="product-card"data-kategori="atasan" data-harga="110000">
+            <div class="product-image">
+                <img src="image/produk2.jpg" alt="Classic Sweater"></div>
+            <div class="product-info">
+                <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Classic Sweater</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 770+</span>
+                    </div>
+                <p>Sweater stylish untuk tampilan elegan modern.</p>
+                <span class="price">Rp 110.000</span>
+                <button onclick="tambah('Classic Sweater',110000,'image/produk2.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 5 -->
+        <div class="product-card"data-kategori="atasan" data-harga="125000">
+            <div class="product-image">
+            <img src="image/baju9.jpg" alt="Hoodie Sky Blue"></div>
+            <div class="product-info">
+                <h3>Hoodie Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 960+</span>
+                    </div>
+                <p>Hoodie modern premium dengan style kekinian.</p>
+                <span class="price">Rp 125.000</span>
+                <button onclick="tambah('Hoodie Wanita',125000,'image/baju9.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="125000">
+           <div class="product-image">
+            <img src="image/alaskaki7.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Wanita Kekinian</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 860+</span>
+                    </div>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 125.000</span>
+                <button onclick="tambah('Sepatu Wanita Kekinian',125000,'image/alaskaki7.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 3 -->
+         <div class="product-card"data-kategori="bawahan" data-harga="115000">
+            <div class="product-image">
+                <img src="image/baju6.jpg" alt="Atasan Wanita"></div>
+                <div class="product-info">
+                <h3>Celana Katun Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">5.0</span>
+                        <span class="sold">• Terjual 1660+</span>
+                    </div>
+                <p>Formal? non-formal? bisa banget dengan celana katun bahan premium ini.</p>
+                <span class="price">Rp 115.000</span>
+                <button onclick="tambah('Celana Katun Wanita',115000,'image/baju6.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 7 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="100000">
+           <div class="product-image">
+            <img src="image/produk7.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Sneakers Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 670+</span>
+                    </div>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 100.000</span>
+                <button onclick="tambah('Sneaker Wanita',100000,'image/produk7.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="80000">
+           <div class="product-image">
+            <img src="image/alaskaki6.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Fentofel Hitam</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 980+</span>
+                    </div>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 80.000</span>
+                <button onclick="tambah('Sepatu Fentofel Hitam',80000,'image/alaskaki6.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 6 -->
+        <div class="product-card"data-kategori="atasan" data-harga="75000">
+            <div class="product-image">
+                <img src="image/baju10.jpg" alt="Classic Sweater"></div>
+                <div class="product-info">
+                <h3>Rompi Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 740+</span>
+                    </div>
+                <p>Rompi wanita dengan bahan premium, elegan, dan stylelist.</p>
+                <span class="price">Rp 75.000</span>
+                <button onclick="tambah('Rompi Wanita',75000,'image/baju10.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 3 -->
+         <div class="product-card"data-kategori="atasan" data-harga="100000">
+            <div class="product-image">
+                <img src="image/atasan4.jpg" alt="Atasan Wanita"></div>
+                <div class="product-info">
+                <h3>Kaos Lengan Panjang</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.7</span>
+                        <span class="sold">• Terjual 460+</span>
+                    </div>
+                <p>Kaos lengan panjang yang akan menghangatkan hati kamu!.</p>
+                <span class="price">Rp 100.000</span>
+                <button onclick="tambah('Kaos Lengan Panjang',100000,'image/atasan4.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="120000">
+           <div class="product-image">
+            <img src="image/alaskaki5.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Wanita Kekinian</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">5.0</span>
+                        <span class="sold">• Terjual 1560+</span>
+                    </div>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 120.000</span>
+                <button onclick="tambah('Sepatu Wanita Kekinian',120000,'image/alaskaki5.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="65000">
+           <div class="product-image">
+            <img src="image/produk8.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Sendal Wanita Kekinian</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 830+</span>
+                    </div>
+                <p>Sendal lucu untuk melengkapi Stylemu.</p>
+                <span class="price">Rp 65.000</span>
+                <button onclick="tambah('Sendal Wanita Kekinian',65000,'image/produk8.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 6 -->
+        <div class="product-card"data-kategori="atasan" data-harga="145000"> 
+            <div class="product-image">
+                <img src="image/baju11.jpg" alt="Classic Sweater"></div>
+                <div class="product-info">
+                <h3>Outer Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 920+</span>
+                    </div>
+                <p>Lengkapi outfitmu dengan outer wanita yang elegan dan trendi.</p>
+                <span class="price">Rp 145.000</span>
+                <button onclick="tambah('Outer Wanita',145000,'image/baju11.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 3 -->
+         <div class="product-card"data-kategori="bawahan" data-harga="100000">
+            <div class="product-image">
+                <img src="image/baju7.jpg" alt="Atasan Wanita"></div>
+                <div class="product-info">
+                <h3>Blue Jeans</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 760+</span>
+                    </div>
+                <p>Aduhhh lucu gak sih? yakin gak tertarik?.</p>
+                <span class="price">Rp 100.000</span>
+               <button onclick="tambah('Blue Jeans',100000,'image/baju7.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 3 -->
+        <div class="product-card"data-kategori="atasan" data-harga="90000">
+            <div class="product-image">
+                <img src="image/atasan5.jpg" alt="Atasan Wanita"></div>
+                <div class="product-info">
+                <h3>Kemeja Polos</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 850+</span>
+                    </div>
+                <p>Dengan kerah dan kancing yang akan membuat stylemu semakin di depan.</p>
+                <span class="price">Rp 90.000</span>
+                <button onclick="tambah('Kemeja Polos',100000,'image/atasan5.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 5 -->
+        <div class="product-card"data-kategori="bawahan" data-harga="75000">
+            <div class="product-image">
+                <img src="image/produk5.jpg" alt="Hoodie Sky Blue"></div>
+                <div class="product-info">
+                    <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Celana Kulot Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 840+</span>
+                    </div>
+                <p>Celana Kulot yang trendi untuk stylemu yang kece.</p>
+                <span class="price">Rp 75.000</span>
+               <button onclick="tambah('Celana Kulot Wanita',75000,'image/produk5.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 5 -->
+        <div class="product-card"data-kategori="atasan" data-harga="140000">
+            <div class="product-image">
+                <img src="image/baju12.jpg" alt="Hoodie Sky Blue"></div>
+                <div class="product-info">
+                <h3>Outer Jas Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 780+</span>
+                    </div>
+                <p>Outer jas yang akan membuatmu lebih elegan.</p>
+                <span class="price">Rp 140.000</span>
+                <button onclick="tambah('Outer Jas Wanita',140000,'image/baju12.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="95000">
+           <div class="product-image">
+            <img src="image/alaskaki3.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sendal Kondangan Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.7</span>
+                        <span class="sold">• Terjual 990+</span>
+                    </div>
+                <p>Sendal lucu untuk melengkapi Stylemu.</p>
+                <span class="price">Rp 95.000</span>
+               <button onclick="tambah('Sendal Kondangan Wanita',95000,'image/alaskaki3.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 3 -->
+         <div class="product-card"data-kategori="atasan" data-harga="80000">
+            <div class="product-image">
+                <img src="image/atasan6.jpg" alt="Atasan Wanita"></div>
+                <div class="product-info">
+                <h3>Kaos Crop top</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 890+</span>
+                    </div>
+                <p> Dibuat dengan bahan kualitas premium.</p>
+                <span class="price">Rp 80.000</span>
+                <button onclick="tambah('Kaos Crop top',80000,'image/atasan6.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="110000">
+           <div class="product-image">
+            <img src="image/alaskaki2.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Kantor Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 660+</span>
+                    </div>
+                <p>Kerja bukan halanganmu untuk tampil stylelist.</p>
+                <span class="price">Rp 110.000</span>
+               <button onclick="tambah('Sepatu Kantor Wanita',110000,'image/alaskaki2.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+         <!-- PRODUK 6 -->
+        <div class="product-card"data-kategori="bawahan" data-harga="145000">
+            <div class="product-image">
+                <img src="image/produk6.jpg" alt="Classic Sweater"></div>
+                <div class="product-info">
+                <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Celana Jeans</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 560+</span>
+                    </div>
+                <p>Celana Jeans Yang cocok untuk melengkapi outfitmu.</p>
+                <span class="price">Rp 145.000</span>
+                <button onclick="tambah('Celana Jeans',145000,'image/produk6.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="80000">
+           <div class="product-image">
+            <img src="image/alaskaki4.jpg" alt="Oversize T-Shirt"></div>
+           <div class="product-info">
+                <h3>Sepatu Fentofel Putih</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 779+</span>
+                    </div>
+                <p>Gaya mu adalah jiwamu!.</p>
+                <span class="price">Rp 80.000</span>
+                <button onclick="tambah('Sepatu Fentofel Putih',80000,'image/alaskaki4.jpg')">Tambah ke Keranjang</button>
+
+            </div>
+        </div>
+
+        <!-- PRODUK 3 -->
+         <div class="product-card"data-kategori="atasan" data-harga="95000">
+            <div class="product-image">
+                <img src="image/atasan7.jpg" alt="Atasan Wanita"></div>
+                <div class="product-info">
+                <h3>Kaos Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">5.0</span>
+                        <span class="sold">• Terjual 790+</span>
+                    </div>
+                <p>Kaos trendi dan lucu membuat gayamu seakin PEDE!.</p>
+                <span class="price">Rp 95.000</span>
+                <button onclick="tambah('Kaos Wanita',95000,'image/atasan7.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+         <!-- PRODUK 3 -->
+         <div class="product-card"data-kategori="atasan" data-harga="145000">
+            <div class="product-image">
+                <img src="image/produk3.jpg" alt="Atasan Wanita"></div>
+                <div class="product-info">
+                    <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Oversize T-Shirt</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 970+</span>
+                    </div>
+                <p>Kaos oversize trend anak muda masa kini.</p>
+                <span class="price">Rp 145.000</span>
+                <button onclick="tambah('Oversize T-Shirt',145000,'image/produk3.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="100000">
+           <div class="product-image">
+            <img src="image/alaskaki1.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Sepatu Wanita Kekinian</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 450+</span>
+                    </div>
+                <p>Sepatu baru membawa langkahmu semakin terdepan.</p>
+                <span class="price">Rp 100.000</span>
+                <button onclick="tambah('Sepatu Wanita Kekinian',100000,'image/alaskaki1.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 4 -->
+        <div class="product-card"data-kategori="atasan" data-harga="115000">
+           <div class="product-image">
+            <img src="image/produk4.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+            <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Kemeja Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 670+</span>
+                    </div>
+                <p>Kemeja wanita kekinian dengan detail lucu.</p>
+                <span class="price">Rp 115.000</span>
+                <button onclick="tambah('Kemeja Wanita',115000,'image/produk4.jpg')">Tambah ke Keranjang</button>
+
+            </div>
+        </div>
+
+        <!-- PRODUK 4 -->
+        <div class="product-card" data-kategori="atasan" data-harga="95000">
+           <div class="product-image">
+            <img src="image/baju3.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Kemeja Putih Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 560+</span>
+                    </div>
+                <p>Kemeja Putih siap membuatmu menjadi lebih elegan.</p>
+                <span class="price">Rp 95.000</span>
+                <button onclick="tambah('Kemeja Putih Wanita',95000,'image/baju3.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 4 -->
+        <div class="product-card"data-kategori="atasan"data-harga="150000">
+           <div class="product-image">
+            <img src="image/gambar4.jpeg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Mini Dress</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.6</span>
+                        <span class="sold">• Terjual 550+</span>
+                    </div>
+                <p>Dress lucu dengan baluta warna putih lengkapi outfitmu.</p>
+                <span class="price">Rp 150.000</span>
+                <button onclick="tambah('Mini Dress',150000,'image/gambar4.jpeg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 4 -->
+        <div class="product-card"data-kategori="atasan" data-harga="120000">
+           <div class="product-image">
+            <img src="image/gambar1.jpeg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <h3>Blouse White</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.5</span>
+                        <span class="sold">• Terjual 935+</span>
+                    </div>
+                <p>Bangun Kepercayaan dirimu dengan bahan blouse berkualitas.</p>
+                <span class="price">Rp 120.000</span>
+                <button onclick="tambah('Blouse White',120000,'image/gambar1.jpeg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+<!-- PRODUK 7 -->
+         <div class="product-card"data-kategori="bawahan" data-harga="140000">
+<div class="product-image">
+<img src="image/baju4.jpg" alt="Atasan Wanita"></div>
+            <div class="product-info">
+            <h3>Beggy Jeans</h3>
+            <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 556+</span>
+                    </div>
+                <p>Untukmu yang skena abiss kami hadirkan beggy jenas yang selalu menjadi pimadona di toko kami.</p>
+                <span class="price">Rp 140.000 </span>
+               <button onclick="tambah('Beggy Jeans',140000,'image/baju4.jpg')">Tambah ke Keranjang</button>
+            </div>
+</div>
+
+<!-- PRODUK 8 -->
+         <div class="product-card"data-kategori="bawahan" data-harga="115000">
+            <div class="product-image">
+<img src="image/celana2.jpg" alt="Atasan Wanita"></div>
+            <div class="product-info">
+                <h3>Rok Mini Lipat Korean Style</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 980+</span>
+                    </div>
+                <p>Rok kasual yang akan menjadikanmu lebih elegan.</p>
+                <span class="price"> Rp 115.000</span>
+                               <button onclick="tambah('Rok Mini Lipat',115000,'image/celana2.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 9 -->
+        <div class="product-card"data-kategori="atasan" data-harga="100000">
+            <div class="product-image">
+    <img src="image/gambar3.jpeg" alt="Classic Sweater"></div>
+    <div class="product-info">
+                <h3>Jaket Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.3</span>
+                        <span class="sold">• Terjual 730+</span>
+                    </div>
+                <p> Jaket Lucu untuk lengkapi outfit kecemu.</p>
+                <span class="price">Rp 100.000 </span>
+                <button onclick="tambah('Jaket Wanita',100000,'image/gambar3.jpeg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 10 -->
+        <div class="product-card"data-kategori="atasan" data-harga="125000">
+            <div class="product-image">
+    <img src="image/gambar6.jpeg" alt="Classic Sweater"></div>
+            <div class="product-info">
+                <h3>Hoodie Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 588+</span>
+                    </div>
+                <p>Hoodie modern premium dengan style kekinian.</p>
+                <span class="price">Rp 125.000</span>
+                 <button onclick="tambah('Hoodie Wanita',125000,'image/gambar6.jpeg')">Tambah ke Keranjang</button>
+
+            </div>
+
+        </div>
+
+         <!-- PRODUK 11 -->
+        <div class="product-card"data-kategori="atasan" data-harga="160000">
+            <div class="product-image">
+<img src="image/jaket1.jpg" alt="Classic Sweater"></div>
+            <div class="product-info">
+                <h3>Jaket Jeans Wanita Korean Style</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 552+</span>
+                    </div>
+                <p>Jaket Jeans yang kekinian dengan style ala korea </p>
+                <span class="price">Rp 160.000</span>
+                <button onclick="tambah('Jaket Jeans Wanita',160000,'image/jaket1.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+         <!-- PRODUK 12 -->
+        <div class="product-card"data-kategori="atasan" data-harga="155000">
+            <div class="product-image">
+                <img src="image/jaket2.jpg" alt="Classic Sweater"></div>
+            <div class="product-info">
+                <h3>Jaket Kasual Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 440+</span>
+                    </div>
+                <p>Jaket kasual yang cocok untuk kamu yang mau tampil kece.</p>
+                <span class="price">Rp 155.000</span>
+               <button onclick="tambah('Jaket Casual Wanita',155000,'image/jaket2.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-box">
+
+<h3>GIA STORE</h3>
+
+<p>
+Fashion modern untuk generasi muda Indonesia.
+Temukan outfit terbaik dengan kualitas premium dan harga terjangkau.
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Menu</h3>
+
+<a href="index.html">Home</a>
+<a href="produk.html">Produk</a>
+<a href="tentang.html">Tentang</a>
+<a href="kontak.html">Kontak</a>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Kontak</h3>
+
+<p>📍 Bandung, Indonesia</p>
+
+<p>📞 0812-3456-7890</p>
+
+<p>✉️ giastore@gmail.com</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Ikuti Kami</h3>
+
+<p>📷 Instagram : @gia.store</p>
+
+<p>💬 WhatsApp : 0812-3456-7890</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 GIA STORE | All Rights Reserved.
+
+</p>
+
+</footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/produk.js"></script>
+</body>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="icon" href="logo.png">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>giastore.id</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/produk.css">
+</head>
+
+<body>
+
+    <div id="loader">
+
+    <div class="loader-content">
+
+        <img src="image/logo.png" alt="Logo">
+
+        <h2>GIA STORE</h2>
+
+        <div class="spinner"></div>
+
+        <p>Memuat halaman...</p>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+
+<nav class="navbar">
+
+   <div class="logo">
+      <img src="image/logo.png" alt="GIA STORE">
+   </div>
+
+   <div class="menu-toggle" onclick="toggleMenu()">
+      ☰
+   </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li id="adminMenu" style="display:none;"><a href="admin.html">👨‍💼 Admin Panel</a></li>
+
+    <li class="user-menu">
+
+    <button id="userBtn" class="user-btn">
+        <span id="loginMenu">👤 Login</span>
+    </button>
+
+    <div class="user-dropdown" id="userDropdown">
+
+        <a href="profile.html">👤 Profil Saya</a>
+        <a href="orders.html">📦 Pesanan Saya</a>
+        <a href="wishlist.html">❤️ Wishlist</a>
+
+        <hr>
+
+        <a href="login.html" onclick="logout()">🚪 Logout</a>
+
+    </div>
+
+</li>
+</ul>
+
+
+<button class="cart-btn" onclick="toggleCart()">
+    🛒 Keranjang (<span id="jumlah">0</span>)
+</button>
+</nav>
+
+<!-- ========================= -->
+<!-- HOME -->
+<!-- ========================= -->
+
+<div id="cart" class="cart">
+
+    <h2>🛒 Keranjang Belanja</h2>
+
+    <div id="list"></div>
+
+    <div class="total-box">
+
+        <h3>Total : Rp <span id="total">0</span></h3>
+
+<button class="checkout-btn" onclick="checkout()">
+Bayar Sekarang
+</button>
+
+        <button class="close-cart" onclick="toggleCart()">
+            Tutup
+        </button>
+
+    </div>
+
+</div>
+
+<section id="home">
+
+    <!-- TEXT -->
+    <div class="home-text">
+
+        <h1>
+            Fashion Modern Anak Muda
+        </h1>
+
+        <p>
+            GIA STORE menghadirkan fashion modern,
+            stylish, klasik dan kekinian.
+            Elegan untuk generasi muda Indonesia.
+        </p>
+
+        <a href="produk.html">
+
+            <button>
+                🛍️ Belanja Sekarang
+            </button>
+
+        </a>
+
+    </div>
+
+    <!-- BANNER -->
+    <div class="banner">
+
+        <div class="banner-card">
+    <img src="image/banner.jpeg" alt="Banner GIA STORE">
+</div>
+
+    </div>
+
+</section>
+<!-- ========================= -->
+<!-- SECTION PRODUK -->
+<!-- ========================= -->
+
+<section class="features">
+
+    <h2>Mengapa Memilih GIA STORE?</h2>
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+            <h3>🚚</h3>
+            <h4>Pengiriman Cepat</h4>
+            <p>Pesanan diproses dengan cepat dan aman.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>💎</h3>
+            <h4>Kualitas Premium</h4>
+            <p>Produk berkualitas dengan bahan pilihan.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>💰</h3>
+            <h4>Harga Terjangkau</h4>
+            <p>Fashion kekinian dengan harga bersahabat.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🛡️</h3>
+            <h4>Transaksi Aman</h4>
+            <p>Pembayaran mudah dan data pelanggan aman.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="produk">
+
+    <div class="section-title">
+
+        <h2>🔥 Produk Best Seller</h2>
+        <p>Pilihan favorit pelanggan dengan kualitas terbaik.</p>
+
+    </div>
+    <div class="product-container">
+
+        <!-- PRODUK 1 -->
+        <div class="product-card"data-kategori="atasan" data-harga="130000">
+            <div class="product-image">
+                <img src="image/produk1.jpg" alt="Hoodie Sky Blue"></div>
+                <div class="product-info">
+                    <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Hoodie Sky Blue</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">5.0</span>
+                        <span class="sold">• Terjual 1200+</span>
+                    </div>
+                <p>Hoodie modern premium dengan style kekinian.</p>
+                <span class="price">Rp 130.000</span>
+                <button onclick="tambah('Hoodie Sky Blue',130000,'image/produk1.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 2 -->
+        <div class="product-card"data-kategori="atasan" data-harga="110000">
+            <div class="product-image">
+                <img src="image/produk2.jpg" alt="Classic Sweater"></div>
+            <div class="product-info">
+                <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Classic Sweater</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 770+</span>
+                    </div>
+                <p>Sweater stylish untuk tampilan elegan modern.</p>
+                <span class="price">Rp 110.000</span>
+                <button onclick="tambah('Classic Sweater',110000,'image/produk2.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+        <!-- PRODUK 3 -->
+         <div class="product-card"data-kategori="atasan" data-harga="145000">
+            <div class="product-image">
+                <img src="image/produk3.jpg" alt="Atasan Wanita"></div>
+                <div class="product-info">
+                    <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Oversize T-Shirt</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 970+</span>
+                    </div>
+                <p>Kaos oversize trend anak muda masa kini.</p>
+                <span class="price">Rp 145.000</span>
+                <button onclick="tambah('Oversize T-Shirt',145000,'image/produk3.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+ <!-- PRODUK 4 -->
+        <div class="product-card"data-kategori="atasan" data-harga="115000">
+           <div class="product-image">
+            <img src="image/produk4.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+            <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Kemeja Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 670+</span>
+                    </div>
+                <p>Kemeja wanita kekinian dengan detail lucu.</p>
+                <span class="price">Rp 115.000</span>
+                <button onclick="tambah('Kemeja Wanita',115000,'image/produk4.jpg')">Tambah ke Keranjang</button>
+
+            </div>
+        </div>
+
+        <!-- PRODUK 5 -->
+        <div class="product-card"data-kategori="bawahan" data-harga="75000">
+            <div class="product-image">
+                <img src="image/produk5.jpg" alt="Hoodie Sky Blue"></div>
+                <div class="product-info">
+                    <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Celana Kulot Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 840+</span>
+                    </div>
+                <p>Celana Kulot yang trendi untuk stylemu yang kece.</p>
+                <span class="price">Rp 75.000</span>
+               <button onclick="tambah('Celana Kulot Wanita',75000,'image/produk5.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+         <!-- PRODUK 6 -->
+        <div class="product-card"data-kategori="bawahan" data-harga="145000">
+            <div class="product-image">
+                <img src="image/produk6.jpg" alt="Classic Sweater"></div>
+                <div class="product-info">
+                <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Celana Jeans</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 560+</span>
+                    </div>
+                <p>Celana Jeans Yang cocok untuk melengkapi outfitmu.</p>
+                <span class="price">Rp 145.000</span>
+                <button onclick="tambah('Celana Jeans',145000,'image/produk6.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+       <!-- PRODUK 7 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="100000">
+           <div class="product-image">
+            <img src="image/produk7.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Sneakers Wanita</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 670+</span>
+                    </div>
+                <p>Sepatu trendi untuk membuatmu melangkah lebih fashionable.</p>
+                <span class="price">Rp 100.000</span>
+                <button onclick="tambah('Sneaker Wanita',100000,'image/produk7.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+ <!-- PRODUK 8 -->
+        <div class="product-card"data-kategori="sepatu" data-harga="65000">
+           <div class="product-image">
+            <img src="image/produk8.jpg" alt="Oversize T-Shirt"></div>
+            <div class="product-info">
+                <div class="badge best-seller">🔥 Best Seller</div>
+                <h3>Sendal Wanita Kekinian</h3>
+                <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-score">4.9</span>
+                        <span class="sold">• Terjual 830+</span>
+                    </div>
+                <p>Sendal lucu untuk melengkapi Stylemu.</p>
+                <span class="price">Rp 65.000</span>
+                <button onclick="tambah('Sendal Wanita Kekinian',65000,'image/produk8.jpg')">Tambah ke Keranjang</button>
+            </div>
+        </div>
+
+              <div class="lihat-semua">
+                <a href="produk.html" class="btn-lihat">
+                Lihat Semua Produk →
+                </a>
+
+        </div>
+
+    </div>
+
+
+</section>
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-box">
+
+<h3>GIA STORE</h3>
+
+<p>
+Fashion modern untuk generasi muda Indonesia.
+Temukan outfit terbaik dengan kualitas premium dan harga terjangkau.
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Menu</h3>
+
+<a href="index.html">Home</a>
+<a href="produk.html">Produk</a>
+<a href="tentang.html">Tentang</a>
+<a href="kontak.html">Kontak</a>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Kontak</h3>
+
+<p>📍 Bandung, Indonesia</p>
+
+<p>📞 0812-3456-7890</p>
+
+<p>✉️ giastore@gmail.com</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Ikuti Kami</h3>
+
+<p>📷 Instagram : @gia.store</p>
+
+<p>💬 WhatsApp : 0812-3456-7890</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 GIA STORE | All Rights Reserved.
+
+</p>
+
+</footer>
+<script src="js/main.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

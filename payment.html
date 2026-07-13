@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembayaran | GIA STORE</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/payment.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<img src="image/logo.png" alt="GIA STORE">
+</div>
+<a href="index.html">← Kembali</a>
+
+</header>
+
+<div class="container">
+
+<!-- FORM -->
+
+<div class="card">
+
+<h2>Data Pembeli</h2>
+
+<form id="paymentForm">
+
+<div class="input-group">
+<label>Nama Lengkap</label>
+<input type="text" id="nama" required>
+
+<div class="input-group">
+<label>Nomor HP</label>
+<input type="tel" id="hp" required>
+</div>
+
+<div class="input-group">
+<label>Email</label>
+<input type="email" id="email" required>
+</div>
+
+<div class="input-group">
+<label>Alamat Lengkap</label>
+<textarea id="alamat" rows="4" required></textarea>
+</div>
+
+<div class="input-group">
+<label>Metode Pembayaran</label>
+
+<select id="metode" required>
+
+<option value="">-- Pilih --</option>
+
+<option>Transfer Bank</option>
+
+<option>DANA</option>
+
+<option>OVO</option>
+
+<option>GoPay</option>
+
+<option>COD (Bayar di Tempat)</option>
+
+</select>
+
+</div>
+
+<button type="submit">
+Bayar Sekarang
+</button>
+
+</form>
+
+</div>
+
+<!-- RINGKASAN -->
+
+<div class="card">
+
+<h2>Ringkasan Pesanan</h2>
+
+<div class="product">
+<span>Oversize T-Shirt</span>
+<span>Rp120.000</span>
+</div>
+
+<div class="product">
+<span>Jumlah</span>
+<span>1</span>
+</div>
+
+<div class="product">
+<span>Ongkir</span>
+<span>Rp15.000</span>
+</div>
+
+<div class="total">
+<span>Total</span>
+<span>Rp135.000</span>
+</div>
+
+</div>
+
+</div>
+
+<div id="loading">
+
+    <div class="verify-box">
+
+        <div class="loader"></div>
+
+        <h2>Memverifikasi Pesanan...</h2>
+
+        <p>Mohon tunggu sebentar</p>
+
+        <div class="progress">
+
+            <div class="progress-bar"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-box">
+
+<h3>GIA STORE</h3>
+
+<p>
+Fashion modern untuk generasi muda Indonesia.
+Temukan outfit terbaik dengan kualitas premium dan harga terjangkau.
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Menu</h3>
+
+<a href="index.html">Home</a>
+<a href="produk.html">Produk</a>
+<a href="tentang.html">Tentang</a>
+<a href="kontak.html">Kontak</a>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Kontak</h3>
+
+<p>📍 Bandung, Indonesia</p>
+
+<p>📞 0812-3456-7890</p>
+
+<p>✉️ giastore@gmail.com</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Ikuti Kami</h3>
+
+<p>📷 Instagram : @gia.store</p>
+
+<p>💬 WhatsApp : 0812-3456-7890</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 GIA STORE | All Rights Reserved.
+
+</p>
+
+</footer>
+
+<script src="js/payment.js"></script>
+
+</body>
+</html>

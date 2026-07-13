@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Tentang - GIA STORE</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tentang.css">
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">
+    <img src="image/logo.png" alt="GIA STORE">
+</div>
+     <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li id="adminMenu" style="display:none;"><a href="admin.html">👨‍💼 Admin Panel</a></li>
+     <li class="user-menu">
+
+    <button id="userBtn" class="user-btn">
+        <span id="loginMenu">👤 Login</span>
+    </button>
+
+    <div class="user-dropdown" id="userDropdown">
+
+        <a href="profile.html">👤 Profil Saya</a>
+        <a href="orders.html">📦 Pesanan Saya</a>
+        <a href="wishlist.html">❤️ Wishlist</a>
+
+        <hr>
+
+        <a href="login.html" onclick="logout()">🚪 Logout</a>
+
+    </div>
+
+</li>
+</ul>
+
+    <button class="cart-btn" onclick="toggleCart()">
+    🛒 Keranjang (<span id="jumlah">0</span>)
+</button>
+
+</nav>
+
+<section class="hero-about">
+
+    <h1>Tentang GIA STORE</h1>
+
+    <p>
+        Fashion Modern • Berkualitas • Terpercaya
+    </p>
+
+</section>
+
+<div id="cart" class="cart">
+
+    <h2>🛒 Keranjang Belanja</h2>
+
+    <div id="list"></div>
+
+    <div class="total-box">
+
+        <h3>Total : Rp <span id="total">0</span></h3>
+
+<button class="checkout-btn" onclick="checkout()">
+Bayar Sekarang
+</button>
+
+        <button class="close-cart" onclick="toggleCart()">
+            Tutup
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- TENTANG -->
+<section id="tentang">
+
+    <div class="about-container">
+
+       <h2>Siapa Kami?</h2>
+
+        <p>
+        GIA STORE merupakan toko fashion online yang menyediakan berbagai produk pakaian dan alas kaki dengan desain modern, nyaman digunakan, serta mengikuti tren masa kini.
+        </p>
+
+    <p>
+    Kami percaya bahwa setiap orang berhak tampil percaya diri melalui fashion yang berkualitas. Oleh karena itu kami menghadirkan produk dengan bahan pilihan, desain menarik, dan harga yang terjangkau.
+    </p>
+
+    <p>
+    Melalui website ini pelanggan dapat melihat katalog produk, memilih barang favorit, menambahkan ke keranjang, hingga melakukan proses pembayaran secara mudah dan praktis.
+    </p>
+
+    </div>
+
+<div class="visi-misi">
+
+    <div class="card">
+        <h3>🎯 Visi</h3>
+
+        <p>
+            Menjadi toko fashion online terpercaya yang menyediakan produk berkualitas dengan pelayanan terbaik bagi pelanggan.
+        </p>
+    </div>
+
+    <div class="card">
+
+        <h3>🚀 Misi</h3>
+
+        <ul>
+            <li>Menyediakan produk berkualitas.</li>
+            <li>Mengikuti tren fashion terbaru.</li>
+            <li>Memberikan pelayanan terbaik.</li>
+            <li>Memudahkan pelanggan berbelanja.</li>
+        </ul>
+
+    </div>
+
+    <div class="keunggulan">
+
+    <div>✅ Produk Berkualitas</div>
+
+    <div>🚚 Pengiriman Cepat</div>
+
+    <div>💳 Pembayaran Mudah</div>
+
+    <div>😊 Pelayanan Ramah</div>
+
+</div>
+
+</div>
+</section>
+
+<script src="js/main.js"></script>
+<script src="js/produk.js"></script>
+
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-box">
+
+<h3>GIA STORE</h3>
+
+<p>
+Fashion modern untuk generasi muda Indonesia.
+Temukan outfit terbaik dengan kualitas premium dan harga terjangkau.
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Menu</h3>
+
+<a href="index.html">Home</a>
+<a href="produk.html">Produk</a>
+<a href="tentang.html">Tentang</a>
+<a href="kontak.html">Kontak</a>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Kontak</h3>
+
+<p>📍 Bandung, Indonesia</p>
+
+<p>📞 0812-3456-7890</p>
+
+<p>✉️ giastore@gmail.com</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Ikuti Kami</h3>
+
+<p>📷 Instagram : @gia.store</p>
+
+<p>💬 WhatsApp : 0812-3456-7890</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 GIA STORE | All Rights Reserved.
+
+</p>
+
+</footer>
+</body>
+</html>

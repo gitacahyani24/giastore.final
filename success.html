@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesanan Berhasil | GIA STORE</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#D8ECFF,#F7FBFF);
+
+}
+
+.card{
+
+background:white;
+padding:50px;
+width:420px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,.15);
+
+animation:popup .6s ease;
+
+}
+
+@keyframes popup{
+
+from{
+
+transform:scale(.7);
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+opacity:1;
+
+}
+
+}
+
+.checkmark{
+
+width:120px;
+height:120px;
+margin:auto;
+margin-bottom:25px;
+
+}
+
+.circle{
+
+stroke:#4CAF50;
+stroke-width:6;
+fill:none;
+stroke-dasharray:380;
+stroke-dashoffset:380;
+animation:circle .8s forwards;
+
+}
+
+@keyframes circle{
+
+to{
+
+stroke-dashoffset:0;
+
+}
+
+}
+
+.check{
+
+stroke:#4CAF50;
+stroke-width:7;
+fill:none;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-dasharray:80;
+stroke-dashoffset:80;
+animation:check .4s .8s forwards;
+
+}
+
+@keyframes check{
+
+to{
+
+stroke-dashoffset:0;
+
+}
+
+}
+
+h1{
+
+color:#24496e;
+margin-bottom:15px;
+
+}
+
+p{
+
+color:#666;
+line-height:1.6;
+margin-bottom:25px;
+
+}
+
+.order{
+
+background:#F3F8FF;
+padding:15px;
+border-radius:12px;
+font-weight:bold;
+color:#4EA4FF;
+margin-bottom:30px;
+
+}
+
+button{
+
+padding:15px 35px;
+border:none;
+border-radius:10px;
+background:#4EA4FF;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#2c79c9;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<svg class="checkmark" viewBox="0 0 120 120">
+
+<circle class="circle" cx="60" cy="60" r="50"/>
+
+<polyline class="check"
+points="35,63 53,80 86,45"/>
+
+</svg>
+
+<h1>Pesanan Berhasil Dibuat 🎉</h1>
+
+<p>
+
+Terima kasih telah berbelanja di <b>GIA STORE</b>.
+
+Admin akan segera memverifikasi pesanan Anda melalui WhatsApp.
+
+</p>
+
+<div class="order" id="kodePesanan">
+
+Kode Pesanan :
+
+</div>
+
+<p style="margin-bottom:25px;">
+
+Kembali ke Beranda dalam
+<b id="count">10</b>
+detik
+
+</p>
+
+<button onclick="window.location.href='index.html'">
+
+Kembali ke Beranda
+
+</button>
+
+<button id="waBtn" style="margin-top:15px;background:#25D366;">
+    Hubungi Admin via WhatsApp
+</button>
+
+</div>
+
+</body>
+
+<audio id="successSound" src="audio/success.mp3"></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script>
+
+// Membuat kode pesanan
+const kode = "GIA-" + Date.now().toString().slice(-6);
+
+document.getElementById("kodePesanan").innerHTML =
+"Kode Pesanan : <br><b>" + kode + "</b>";
+
+// Memainkan suara (jika ada)
+const sound = document.getElementById("successSound");
+
+if(sound){
+    sound.play().catch(()=>{});
+}
+
+// Animasi confetti
+setTimeout(() => {
+
+    confetti({
+        particleCount:180,
+        spread:90,
+        origin:{ y:0.6 }
+    });
+
+},900);
+
+// Countdown
+let waktu = 10;
+
+const hitung = setInterval(() => {
+
+    waktu--;
+
+    document.getElementById("count").textContent = waktu;
+
+    if(waktu <= 0){
+
+        clearInterval(hitung);
+
+        window.location.href = "index.html";
+
+    }
+
+},1000);
+
+</script>
+
+<script>
+
+document.getElementById("waBtn").addEventListener("click", function(){
+
+    const pesan = localStorage.getItem("pesanWA");
+
+    if(!pesan){
+        alert("Data pesanan tidak ditemukan.");
+        return;
+    }
+
+    window.open(
+        "https://wa.me/6289503866056?text=" + encodeURIComponent(pesan),
+        "_blank"
+    );
+
+});
+
+</script>
+
+
+</html>

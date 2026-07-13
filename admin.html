@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard Admin | GIA STORE</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+
+</head>
+<body>
+
+    <div id="loader">
+
+    <div class="loader-content">
+
+        <img src="image/logo.png" alt="Logo">
+
+        <h2>GIA STORE</h2>
+
+        <div class="spinner"></div>
+
+        <p>Memuat halaman...</p>
+
+    </div>
+
+</div>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <img src="image/logo.png" alt="Logo">
+
+        <h2>GIA STORE</h2>
+
+   <ul>
+    <li class="active" onclick="showPage('dashboard')">🏠 Dashboard</li>
+    <li onclick="showPage('produk')">📦 Produk</li>
+    <li onclick="showPage('pesanan')">🛒 Pesanan</li>
+    <li onclick="showPage('pembeli')">👥 Pembeli</li>
+    <li onclick="showPage('laporan')">📊 Laporan</li>
+    <li onclick="showPage('pengaturan')">⚙ Pengaturan</li>
+    <li onclick="logout()">🚪 Logout</li>
+</ul>
+    </aside>
+
+    <main class="content">
+
+    <section id="dashboardPage">
+
+        <h2 id="judulDashboard"> Dashboard</h2>
+        <p id="tanggalHari"></p>
+        <div class="dashboard-cards">
+
+    <div class="card">
+        <h3>📦 Produk</h3>
+        <span id="jumlahProduk">0</span>
+    </div>
+
+    <div class="card">
+        <h3>👥 Pembeli</h3>
+        <span id="jumlahPembeli">0</span>
+    </div>
+
+    <div class="card">
+        <h3>🛒 Pesanan</h3>
+        <span id="jumlahPesanan">0</span>
+    </div>
+
+    <div class="card">
+        <h3>💰 Pendapatan</h3>
+        <span id="pendapatan">Rp0</span>
+    </div>
+
+</div>
+        <div class="quick-action">
+
+    <button onclick="bukaModal()">
+    ➕ Tambah Produk
+</button>
+
+    <button onclick="showPage('pesanan')">
+        📦 Lihat Pesanan
+    </button>
+
+</div>
+
+    </section>
+
+    <section id="produkPage" style="display:none;">
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Gambar</th>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Aksi</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="produkTable">
+
+        </tbody>
+
+    </table>
+
+</section>
+
+</main>
+
+<div class="modal" id="modalProduk">
+    <img id="previewGambar" width="120" style="display:none;margin:10px auto;">
+
+    <div class="modal-content">
+
+        <h2>Tambah Produk</h2>
+
+        <input type="text" id="namaProduk" placeholder="Nama Produk">
+
+        <input type="number" id="hargaProduk" placeholder="Harga">
+
+        <select id="kategoriProduk">
+            <option value="Atasan">Atasan</option>
+            <option value="Bawahan">Bawahan</option>
+            <option value="Sepatu & Sandal">Sepatu & Sandal</option>
+        </select>
+
+        <input type="file" id="gambarProduk" accept="image/*">
+
+        <button onclick="simpanProduk()">Simpan Produk</button>
+        <button type="button" class="batal" onclick="tutupModal()">Batal</button>
+    </div>
+
+</div>
+
+
+<script src="js/main.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>

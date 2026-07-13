@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profil Saya | GIA STORE</title>
+
+<link rel="stylesheet" href="css/profile.css">
+
+</head>
+
+<body>
+
+<header>
+
+<a href="index.html" class="logo">
+<img src="image/logo.png">
+</a>
+
+<nav>
+
+<a href="index.html">Beranda</a>
+<a href="produk.html">Produk</a>
+<a href="wishlist.html">Wishlist</a>
+<a href="orders.html">Pesanan</a>
+
+</nav>
+
+</header>
+
+<div class="container">
+
+<div class="sidebar">
+
+<img src="image/ikon.jpg" class="avatar">
+
+<h3 id="namaUser">Nama Pembeli</h3>
+
+<p id="emailUser">email@gmail.com</p>
+
+<ul>
+
+<li class="active">
+<i class="fa-solid fa-user"></i>
+Profil Saya
+</li>
+
+<li onclick="location.href='orders.html'">
+<i class="fa-solid fa-box"></i>
+Pesanan Saya
+</li>
+
+<li onclick="location.href='wishlist.html'">
+<i class="fa-solid fa-heart"></i>
+Wishlist
+</li>
+
+<li onclick="logout()">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</li>
+
+</ul>
+
+</div>
+
+<div class="content">
+
+<h2>Profil Saya</h2>
+
+<div class="form">
+
+<label>Nama Lengkap</label>
+<input type="text" id="nama">
+
+<label>Email</label>
+<input type="email" id="email">
+
+<label>No HP</label>
+<input type="text" id="hp">
+
+<label>Alamat</label>
+<textarea id="alamat"></textarea>
+
+<button onclick="simpanProfil()">
+
+Simpan Perubahan
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/profile.js"></script>
+
+</body>
+</html>
