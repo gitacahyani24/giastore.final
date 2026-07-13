@@ -1,0 +1,154 @@
+/* ========================= */
+/* GLOBAL */
+/* ========================= */
+
+* {margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{scroll-behavior:smooth;}
+body{background:#f4f9ff;}
+
+/* ========================= */
+/* PRODUK */
+/* ========================= */
+
+.product-image{height:300px;overflow:hidden;}
+.product-image img{width:100%;height:100%;object-fit:cover;}
+#produk{padding:80px 8%;}
+.section-title{text-align:center;margin-bottom:50px;}
+.section-title h2{font-size:42px;color:#2c5d8a;margin-bottom:10px;}
+.section-title p{color:#6483a0;}
+
+/* GRID PRODUK */
+.product-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;}
+
+/* CARD */
+.product-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.08);transition:0.3s;}
+.product-card:hover{transform:translateY(-8px);}
+
+/* WARNA */
+.blue1{background:linear-gradient(135deg,#dbeeff,#8fc7ff);}
+.blue2{background:linear-gradient(135deg,#cde7ff,#78bfff);}
+.blue3{background:linear-gradient(135deg,#dff2ff,#93ccff);}
+
+/* INFO */
+.product-info{padding:22px;}
+.product-info h3{color:#24496e;margin-bottom:10px;}
+.product-info p{color:#6d86a0;line-height:1.6;margin-bottom:15px;font-size:14px;}
+.price{display:block;color:#4ea4ff;font-size:20px;font-weight:bold;margin-bottom:20px;}
+.rating{display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:14px;}
+.stars{color:#FFD700;font-size:16px;}
+.score{color:#24496e;font-weight:bold;}
+.sold{color:#7d8fa3;font-size:13px;}
+.add-to-cart { background: #007bff; color: white; border: none; width: 100%; }
+
+/* BUTTON */
+.product-info button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:12px;
+    background:#6eb5ff;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    font-size:15px;
+}
+
+.product-info button:hover{
+    background:#4ea4ff;
+}
+
+
+.filter-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    margin-bottom:45px;
+    flex-wrap:wrap;
+}
+
+.filter-box input,
+.filter-box select{
+
+    padding:14px 18px;
+    border:2px solid #d8ecff;
+    border-radius:12px;
+    font-size:15px;
+    background:white;
+    color:#24496e;
+    outline:none;
+    width:260px;
+    transition:.3s;
+    cursor:pointer;
+
+}
+
+.filter-box input:focus,
+.filter-box select:focus{
+
+    border-color:#6eb5ff;
+    box-shadow:0 0 10px rgba(110,181,255,.3);
+
+}
+
+.product-rating{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin:8px 0;
+    font-size:14px;
+    flex-wrap:wrap;
+}
+
+.stars{
+    color:#f4b400;
+    letter-spacing:1px;
+}
+
+.rating-score{
+    color:#555;
+    font-weight:600;
+}
+
+.sold{
+    color:#777;
+    font-size:13px;
+}
+
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:768px){
+    
+    .product-image{
+    height:240px;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Produk */
+
+#produk{
+    padding:50px 20px;
+}
+
+.product-container{
+    grid-template-columns:1fr;
+}
+
+.product-card{
+    width:100%;
+}
+
+
+
+}
