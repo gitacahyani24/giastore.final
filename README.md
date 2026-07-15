@@ -214,9 +214,9 @@ GIA STORE
 │
 ├── images/
 │   ├── logo.png
-│   ├── banner/
-│   ├── products/
-│   └── icons/
+│   ├── banner.jpeg
+│   ├── produk.jpg
+│   └── ikon.jpg
 │
 └── README.md
 ```
